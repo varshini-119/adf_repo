@@ -1,0 +1,30 @@
+{
+	"name": "AzureSqlTable2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"excel_schema": {
+				"type": "string"
+			},
+			"excel_table": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": {
+				"value": "@dataset().excel_schema",
+				"type": "Expression"
+			},
+			"table": {
+				"value": "@dataset().excel_table",
+				"type": "Expression"
+			}
+		}
+	}
+}
