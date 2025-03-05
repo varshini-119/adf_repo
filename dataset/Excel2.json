@@ -8,6 +8,7 @@
 		"annotations": [],
 		"type": "Excel",
 		"typeProperties": {
+			"sheetName": "Worksheet",
 			"location": {
 				"type": "AzureBlobStorageLocation",
 				"fileName": "datatransfer.xlsx",
