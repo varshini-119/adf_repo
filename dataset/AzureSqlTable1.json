@@ -13,7 +13,10 @@
 				"value": "schema",
 				"type": "Expression"
 			},
-			"table": "subdata"
+			"table": {
+				"value": "@item()",
+				"type": "Expression"
+			}
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"
