@@ -52,6 +52,7 @@
 						"type": "AzureSqlSink",
 						"writeBehavior": "insert",
 						"sqlWriterUseTableLock": false,
+						"tableOption": "autoCreate",
 						"disableMetricsCollection": false
 					},
 					"enableStaging": false,
@@ -99,7 +100,8 @@
 									"path": "$['address']['street']"
 								},
 								"sink": {
-									"name": "street"
+									"name": "street",
+									"type": "String"
 								}
 							},
 							{
@@ -107,7 +109,8 @@
 									"path": "$['address']['suite']"
 								},
 								"sink": {
-									"name": "suite"
+									"name": "suite",
+									"type": "String"
 								}
 							},
 							{
@@ -115,7 +118,8 @@
 									"path": "$['address']['city']"
 								},
 								"sink": {
-									"name": "city"
+									"name": "city",
+									"type": "String"
 								}
 							},
 							{
@@ -123,7 +127,8 @@
 									"path": "$['address']['zipcode']"
 								},
 								"sink": {
-									"name": "zipcode"
+									"name": "zipcode",
+									"type": "String"
 								}
 							},
 							{
@@ -131,7 +136,8 @@
 									"path": "$['address']['geo']['lat']"
 								},
 								"sink": {
-									"name": "lat"
+									"name": "lat",
+									"type": "String"
 								}
 							},
 							{
@@ -139,7 +145,8 @@
 									"path": "$['address']['geo']['lng']"
 								},
 								"sink": {
-									"name": "lng"
+									"name": "lng",
+									"type": "String"
 								}
 							},
 							{
@@ -173,7 +180,8 @@
 									"path": "$['company']['catchPhrase']"
 								},
 								"sink": {
-									"name": "catchPhrase"
+									"name": "catchPhrase",
+									"type": "String"
 								}
 							},
 							{
@@ -181,7 +189,8 @@
 									"path": "$['company']['bs']"
 								},
 								"sink": {
-									"name": "bs"
+									"name": "bs",
+									"type": "String"
 								}
 							}
 						]
@@ -199,7 +208,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"schema": "stage",
-							"table": "userData"
+							"table": "UserData"
 						}
 					}
 				]
