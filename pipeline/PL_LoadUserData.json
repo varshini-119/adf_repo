@@ -20,7 +20,7 @@
 				}
 			},
 			{
-				"name": "copy_to_raw_schema",
+				"name": "copy_to_stage_schema",
 				"type": "Copy",
 				"dependsOn": [
 					{
@@ -68,18 +68,18 @@
 						"referenceName": "AzureSqlTable4",
 						"type": "DatasetReference",
 						"parameters": {
-							"schema": "raw",
+							"schema": "stage",
 							"table": "userData"
 						}
 					}
 				]
 			},
 			{
-				"name": "DF_Select_and_Load_to_Prep",
-				"type": "ExecuteDataFlow",
+				"name": "SP_UserData",
+				"type": "SqlServerStoredProcedure",
 				"dependsOn": [
 					{
-						"activity": "copy_to_raw_schema",
+						"activity": "copy_to_stage_schema",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -94,22 +94,72 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"dataflow": {
-						"referenceName": "dataflow2",
-						"type": "DataFlowReference",
-						"datasetParameters": {
-							"sink1": {
-								"schema": "prep",
-								"table": "userData"
-							}
-						}
-					},
-					"compute": {
-						"coreCount": 8,
-						"computeType": "General"
-					},
-					"traceLevel": "Fine"
+					"storedProcedureName": "[dbo].[UserData]"
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase1",
+					"type": "LinkedServiceReference"
 				}
+			},
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "SP_UserData",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"sqlReaderStoredProcedureName": "[dbo].[UserData]",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"writeBehavior": "insert",
+						"sqlWriterUseTableLock": false,
+						"tableOption": "autoCreate",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "AzureSqlTable7",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "AzureSqlTable6",
+						"type": "DatasetReference",
+						"parameters": {
+							"schema": "prep",
+							"table": "userData"
+						}
+					}
+				]
 			}
 		],
 		"annotations": []
