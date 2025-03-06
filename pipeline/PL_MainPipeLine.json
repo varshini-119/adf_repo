@@ -11,6 +11,10 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
+					"pipeline": {
+						"referenceName": "PL_Customers",
+						"type": "PipelineReference"
+					},
 					"waitOnCompletion": true
 				}
 			},
