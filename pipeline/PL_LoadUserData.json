@@ -172,7 +172,8 @@
 									"path": "$['company']['name']"
 								},
 								"sink": {
-									"name": "company_name"
+									"name": "company_name",
+									"type": "String"
 								}
 							},
 							{
@@ -208,7 +209,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"schema": "stage",
-							"table": "UserData"
+							"table": "UsersData"
 						}
 					}
 				]
@@ -241,7 +242,7 @@
 				}
 			},
 			{
-				"name": "Copy data1",
+				"name": "Copy_To_Prep_Schema",
 				"type": "Copy",
 				"dependsOn": [
 					{
@@ -295,7 +296,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"schema": "prep",
-							"table": "userData"
+							"table": "UsersData"
 						}
 					}
 				]
