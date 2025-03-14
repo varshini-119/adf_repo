@@ -10,10 +10,7 @@
 		"schema": [],
 		"typeProperties": {
 			"schema": "STAGE",
-			"table": {
-				"value": "@item().TABLE_NAME",
-				"type": "Expression"
-			}
+			"table": "PRODUCTS_DATA"
 		}
 	}
 }
