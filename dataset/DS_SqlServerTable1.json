@@ -2,7 +2,7 @@
 	"name": "DS_SqlServerTable1",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "LS_SqlServer",
+			"referenceName": "LS_Sql_Server",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
@@ -10,7 +10,7 @@
 		"schema": [],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "locations"
+			"table": "products_data"
 		}
 	}
 }
