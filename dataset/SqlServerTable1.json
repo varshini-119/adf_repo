@@ -1,16 +1,16 @@
 {
-	"name": "SnowflakeTable",
+	"name": "SqlServerTable1",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "LS_Snowflake",
+			"referenceName": "LS_Sql_Server",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
-		"type": "SnowflakeV2Table",
+		"type": "SqlServerTable",
 		"schema": [],
 		"typeProperties": {
-			"schema": "STAGE",
-			"table": "CUSTOMERS_DATA"
+			"schema": "dbo",
+			"table": "customers_data"
 		}
 	}
 }

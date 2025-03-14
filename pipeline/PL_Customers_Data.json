@@ -29,14 +29,14 @@
 					"enableStaging": true,
 					"stagingSettings": {
 						"linkedServiceName": {
-							"referenceName": "AzureBlobStorage1",
+							"referenceName": "LS_Blob",
 							"type": "LinkedServiceReference"
 						}
 					}
 				},
 				"inputs": [
 					{
-						"referenceName": "DS_SqlServerTable1",
+						"referenceName": "SqlServerTable1",
 						"type": "DatasetReference"
 					}
 				],
