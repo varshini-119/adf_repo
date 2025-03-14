@@ -10,7 +10,7 @@
 		"schema": [],
 		"typeProperties": {
 			"schema": "STAGE",
-			"table": "PRODUCTS_DATA"
+			"table": "TRANSACTIONS_DATA"
 		}
 	}
 }
