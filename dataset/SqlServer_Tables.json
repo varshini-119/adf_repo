@@ -1,5 +1,5 @@
 {
-	"name": "SqlServerTable1",
+	"name": "SqlServer_Tables",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "LS_Sql_Server",
@@ -7,13 +7,6 @@
 		},
 		"annotations": [],
 		"type": "SqlServerTable",
-		"schema": [],
-		"typeProperties": {
-			"schema": "dbo",
-			"table": {
-				"value": "@item().TABLE_NAME",
-				"type": "Expression"
-			}
-		}
+		"schema": []
 	}
 }
